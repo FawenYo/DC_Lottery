@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dc-lottery-service
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: NodePort
+  selector:
+      app: dc-lottery
+  ports:
+  - name: https
+    port: 443
+    targetPort: 443
+    protocol: TCP
